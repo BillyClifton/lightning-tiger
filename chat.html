@@ -1,45 +1,41 @@
 <!DOCTYPE html>
-<!-- saved from url=(0026)http://lightningtiger.com/ -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Chat</title>
 
-        <title></title>
-              <link rel="stylesheet" type="text/css" href="./assets/bootstrap.css" media="screen">
-          <link rel="stylesheet" type="text/css" href="./assets/bootstrap-modal-carousel.css" media="screen">
-        <style type="text/css">
-        body{
-    background-color: black;
-    margin: 0;
-    padding: 0;
-  }
-  .lightning-tiger-logo{
-    display: block;
-    margin: 100px auto 0;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -o-user-select: none;
-    user-select: none;
-  }
-  .container-wrapper{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 0;
-    overflow: hidden;
-  }
-  #container{
-    width:1920px;
-    height:1200px;
-    position:absolute;
-    left:50%;
-    top:50%;
-    margin-left:-960px;
-    margin-top:-600px;
-    z-index: -1;
-  }		</style>
+    <style type="text/css">
+      #notSupported {
+      	display: none;
+      }
+      #ascii {
+      	font-family: 'Courier New', 'Courier', monospace;
+      	font-size: 10px;
+      	line-height: 10px;
+      	letter-spacing: -1.5px;
+      	text-align: center;
+      }
+      #button {
+      	display: none;
+      	margin: 20px auto;
+      	padding: 10px 20px;
+      	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      	font-size: 18px;
+      }
+    </style>
   </head>
   <body>
-    <h1>CHAT</h1>
-
-</body></html>
+    <h1 id="info">Waiting for Permission.</h1>
+  	<div id="notSupported">
+  		<h1>Your browser does not support the Camera API.</h1>
+  		<img src="images/screenshot.png" align="center" />
+  	</div>
+  	<button id="button">Start</button>
+  	<pre id="ascii"></pre>
+    <script src="./assets/js/camera.js"></script>
+    <script src="./assets/js/ascii.js"></script>
+    <script src="./assets/js/app.js"></script>
+    <script type="text/javascript">
+    </script>
+  </body>
+</html>
