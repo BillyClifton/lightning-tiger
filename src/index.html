@@ -108,7 +108,7 @@
             };
             context.fillStyle = 'rgba(0, 0, 0, '+alpha+')';
             context.fillRect(0, 0, 1920, 1200);
-            requestAnimFrame(render);
+            window.requestAnimationFrame(render);
         }
 
         window.requestAnimFrame = (function() {
