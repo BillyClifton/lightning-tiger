@@ -8,8 +8,6 @@ phases:
   build:
     commands:
       - npm run build
-      - echo $BUCKET
-artifacts:
-  files:
-    - 'build/**/*'
-  name: '/'
+  post_build:
+    commands:
+      - aws s3 sync ./build s3://www.lightningtiger.com
