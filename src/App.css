@@ -6,6 +6,11 @@ body {
 .lightning-tiger-logo {
   position: absolute;
   top: 0;
+  -khtml-user-select: none;
+  -o-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 .lightning-tiger-logoOld {
   display: block;
