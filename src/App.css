@@ -4,6 +4,10 @@ body {
   padding: 0;
 }
 .lightning-tiger-logo {
+  position: absolute;
+  top: 0;
+}
+.lightning-tiger-logoOld {
   display: block;
   margin: 100px auto 0;
   -webkit-user-select: none;

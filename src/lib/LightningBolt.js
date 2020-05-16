@@ -46,7 +46,7 @@ export default function LightningBolt(
     segment.setEnd(to.x, to.y);
     console.log(to);
     //segment.setStart(617, 0);
-    segment.setEnd(542, 791);
+    //segment.setEnd(542, 791);
     _segments = [segment];
 
     this.generate();

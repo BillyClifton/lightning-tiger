@@ -25,16 +25,16 @@ function App() {
     const context = canvas.getContext("2d");
     var bolt = new LightningBolt(
       context,
-      { x: Math.random() * 960, y: 0 },
-      { x: Math.random() * 960, y: 600 },
+      { x: Math.random() * window.innerWidth, y: 0 },
+      { x: e.pageX, y: e.pageY },
       255,
       1
     );
     //var offset = $('#container').offset();
     // mouseX = e.pageX - offset.left;
     // mouseY = e.pageY - offset.top;
-    bolt.setStart(Math.random() * window.innerWidth, 0);
-    bolt.setEnd(e.pageX, e.pageY);
+    //bolt.setStart(Math.random() * window.innerWidth, 0);
+    //bolt.setEnd(e.pageX, e.pageY);
     bolt.redraw(0.3);
     //animations_ran = 0;
     //window.setTimeout('bolt.render(1)', 100);
@@ -51,17 +51,7 @@ function App() {
   }, []);
   return (
     <div>
-      <div className="container-wrapper">
-        <div id="container">
-          <canvas
-            ref={canvasRef}
-            id="canvas"
-            width="1920"
-            height="1200"
-          ></canvas>
-        </div>
-      </div>
-
+      <canvas ref={canvasRef} id="canvas" width="1920" height="1200"></canvas>
       <img
         className="lightning-tiger-logo"
         src="./assets/lightning_tiger.png"
