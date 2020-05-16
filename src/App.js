@@ -37,7 +37,7 @@ function App() {
     //bolt.setEnd(e.pageX, e.pageY);
     bolt.redraw(0.3);
     //animations_ran = 0;
-    //window.setTimeout('bolt.render(1)', 100);
+    window.setTimeout(bolt.render(1), 100);
     playThunder();
     //flash();
   }
