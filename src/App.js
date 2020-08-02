@@ -64,11 +64,16 @@ function App() {
   }, []);
   return (
     <div>
-      <canvas ref={canvasRef} id="canvas" width="1920" height="1200"></canvas>
       <img
         className="lightning-tiger-logo"
         src="./assets/lightning_tiger.png"
       />
+      <canvas
+        ref={canvasRef}
+        id="canvas"
+        width={window.innerWidth}
+        height={window.innerHeight}
+      ></canvas>
     </div>
   );
 }
