@@ -2,7 +2,11 @@ import React, { useEffect, useRef } from "react";
 import LightningBolt from "./lib/LightningBolt.js";
 import "./App.css";
 function App() {
+  const requestRef = React.useRef();
+  const animations_ran = React.useRef(0);
+  const alpha = React.useRef(0);
   const canvasRef = useRef(null);
+
   function playThunder() {
     var audioElement = document.createElement("audio");
     var thunder_array = [
@@ -16,9 +20,10 @@ function App() {
     audioElement.setAttribute("src", random_thunder);
     audioElement.play();
   }
-  function flash(context) {
-    //ontext.fillStyle = 'rgba(32, 40, 64, '+alpha+')';
-    context.fillRect(0, 0, 1920, 1200);
+  function flash() {
+    const context = canvasRef.current.getContext("2d");
+    context.fillStyle = "rgba(32, 40, 64, .5)";
+    context.fillRect(0, 0, window.innerWidth, window.innerHeight);
   }
   function handleClick(e) {
     const canvas = canvasRef.current;
@@ -30,23 +35,31 @@ function App() {
       255,
       1
     );
-    //var offset = $('#container').offset();
-    // mouseX = e.pageX - offset.left;
-    // mouseY = e.pageY - offset.top;
-    //bolt.setStart(Math.random() * window.innerWidth, 0);
-    //bolt.setEnd(e.pageX, e.pageY);
-    bolt.redraw(0.3);
-    //animations_ran = 0;
-    window.setTimeout(bolt.render(1), 100);
+    animations_ran.current = 0;
+    flash();
+    bolt.redraw(1);
     playThunder();
-    //flash();
+    cancelAnimationFrame(requestRef.current);
+    requestRef.current = requestAnimationFrame(render);
   }
+  function render() {
+    animations_ran.current++;
+    //->1
+    alpha.current = animations_ran.current * animations_ran.current * 0.0001;
+    const context = canvasRef.current.getContext("2d");
+    const { innerWidth: width, innerHeight: height } = window;
+    context.fillStyle = "rgba(0, 0, 0, " + alpha.current + ")";
+    context.fillRect(0, 0, width, height);
+    if (animations_ran.current < 50) {
+      requestRef.current = requestAnimationFrame(render);
+    }
+  }
+
   useEffect(() => {
-    // add when mounted
     document.addEventListener("mousedown", handleClick);
-    // return function to be called when unmounted
     return () => {
       document.removeEventListener("mousedown", handleClick);
+      cancelAnimationFrame(requestRef.current);
     };
   }, []);
   return (
