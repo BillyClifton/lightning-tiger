@@ -36,9 +36,9 @@ function Home() {
       1
     );
     animations_ran.current = 0;
+    playThunder();
     flash();
     bolt.redraw(1);
-    playThunder();
     cancelAnimationFrame(requestRef.current);
     requestRef.current = requestAnimationFrame(render);
   }
