@@ -2,6 +2,7 @@ body {
   background-color: black;
   margin: 0;
   padding: 0;
+  color: white;
 }
 .lightning-tiger-logo {
   position: fixed;
@@ -14,4 +15,17 @@ body {
   -webkit-user-select: none;
   user-select: none;
   -webkit-user-drag: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .lightning-tiger-logo {
+    position: fixed;
+    width: 100%;
+    -khtml-user-select: none;
+    -o-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
 }
